@@ -1,7 +1,7 @@
 # How to swipe an item like Outlook or Gmail application in xamarin.forms listview?
 This example demonstrates to swipe an item like Outlook or Gmail application in xamarin.forms listview by using the swiping events of listview.
 
-See [How to swipe an item like Outlook or Gmail application in xamarin.forms listview]() for more details.
+See [How to swipe an item like Outlook or Gmail application in xamarin.forms listview](https://www.syncfusion.com/kb/9965/how-to-swipe-an-item-like-outlook-or-gmail-application-in-xamarin-forms-listview) for more details.
 ## <a name="requirements-to-run-the-demo"></a>Requirements to run the demo ##
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/).
