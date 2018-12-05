@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SfListViewSample"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="SfListViewSample.SwipingPage">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:SwipingBoolToImageConverter x:Key="BoolToImageConverter"/>
+            <DataTemplate x:Name="HeaderTemplate" x:Key="HeaderTemplate">
+                <Grid BackgroundColor="#4CA1FE" HeightRequest="45">
+                    <Label LineBreakMode="NoWrap"
+                 Margin="10" Text="Inbox" FontAttributes="Bold"
+                 FontSize="18" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Name="ItemTemplate"  x:Key="ItemTemplate">
+                <Grid x:Name="grid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="1" />
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid Padding="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <Label LineBreakMode="NoWrap"
+                     TextColor="#474747"
+                     FontAttributes="Bold"
+                     Text="{Binding Title}">
+                                <Label.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <OnPlatform.WinPhone>
+                                            <OnIdiom x:TypeArguments="x:Double" Phone="18" Tablet="20" />
+                                        </OnPlatform.WinPhone>
+                                        <OnPlatform.Android>
+                                            <OnIdiom x:TypeArguments="x:Double"
+                               Phone="17"
+                               Tablet="19" />
+                                        </OnPlatform.Android>
+                                        <OnPlatform.iOS>
+                                            <OnIdiom x:TypeArguments="x:Double"
+                               Phone="18"
+                               Tablet="20" />
+                                        </OnPlatform.iOS>
+                                    </OnPlatform>
+                                </Label.FontSize>
+                            </Label>
+                            <Label LineBreakMode="NoWrap"
+                     TextColor="#474747"
+                     Grid.Row="1"
+                     Text="{Binding Subject}">
+                                <Label.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <OnPlatform.WinPhone>
+                                            <OnIdiom x:TypeArguments="x:Double" Phone="16" Tablet="20" />
+                                        </OnPlatform.WinPhone>
+                                        <OnPlatform.Android>
+                                            <OnIdiom x:TypeArguments="x:Double"
+                               Phone="14"
+                               Tablet="16" />
+                                        </OnPlatform.Android>
+                                        <OnPlatform.iOS>
+                                            <OnIdiom x:TypeArguments="x:Double"
+                               Phone="14"
+                               Tablet="16" />
+                                        </OnPlatform.iOS>
+                                    </OnPlatform>
+                                </Label.FontSize>
+                            </Label>
+                            <Label TextColor="#474747"
+                       Grid.Row="2"
+                     LineBreakMode="NoWrap"
+                     Text="{Binding Description}">
+                                <Label.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <OnPlatform.WinPhone>
+                                            <OnIdiom x:TypeArguments="x:Double" Phone="12" Tablet="12" />
+                                        </OnPlatform.WinPhone>
+                                        <OnPlatform.Android>
+                                            <OnIdiom x:TypeArguments="x:Double"
+                               Phone="12"
+                               Tablet="14" />
+                                        </OnPlatform.Android>
+                                        <OnPlatform.iOS>
+                                            <OnIdiom x:TypeArguments="x:Double"
+                               Phone="12"
+                               Tablet="14" />
+                                        </OnPlatform.iOS>
+                                    </OnPlatform>
+                                </Label.FontSize>
+                            </Label>
+                        </Grid>
+                        <Grid Grid.Column="1" Padding="5,10,5,10" HorizontalOptions="End">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+                            <Label TextColor="#474747"
+                     LineBreakMode="NoWrap"
+                     Text="{Binding Date}">
+                                <Label.FontSize>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <OnPlatform.WinPhone>
+                                            <OnIdiom x:TypeArguments="x:Double" Phone="12" Tablet="12" />
+                                        </OnPlatform.WinPhone>
+                                        <OnPlatform.Android>
+                                            <OnIdiom x:TypeArguments="x:Double"
+                               Phone="12"
+                               Tablet="14" />
+                                        </OnPlatform.Android>
+                                        <OnPlatform.iOS>
+                                            <OnIdiom x:TypeArguments="x:Double"
+                               Phone="12"
+                               Tablet="14" />
+                                        </OnPlatform.iOS>
+                                    </OnPlatform>
+                                </Label.FontSize>
+                            </Label>
+
+                            <Image x:Name="NormalImage" Grid.Row="1" HorizontalOptions="Center"
+                     HeightRequest="30"
+                     WidthRequest="30"
+                     Source="{Binding Path=IsFavorite, Converter={StaticResource BoolToImageConverter}}"
+                     VerticalOptions="Center"/>
+                        </Grid>
+                    </Grid>
+                    <Frame Grid.Row="1" OutlineColor="#E4E4E4" HasShadow="True" HeightRequest="1"/>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <syncfusion:SfListView x:Name="listView"
+                     ItemTemplate="{StaticResource ItemTemplate}" 
+                     HeaderTemplate="{StaticResource HeaderTemplate}"
+                     AllowSwiping="True" SelectionMode="None"
+                     SwipeThreshold="30"  IsStickyHeader="True" 
+                     ItemSize="100" HeaderSize="70">
+
+        <syncfusion:SfListView.Behaviors>
+            <local:SfListViewSwipingBehavior/>
+        </syncfusion:SfListView.Behaviors>
+
+        <syncfusion:SfListView.RightSwipeTemplate>
+            <DataTemplate x:Name="RightSwipeTemplate">
+                <Grid BackgroundColor="#3DD73A" HorizontalOptions="Fill" VerticalOptions="Fill">
+                    <Label Text="Archive" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" 
+                          HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                </Grid>
+            </DataTemplate>
+        </syncfusion:SfListView.RightSwipeTemplate>
+        <syncfusion:SfListView.LeftSwipeTemplate>
+            <DataTemplate x:Name="LeftSwipeTemplate">
+                <Grid BackgroundColor="#DC595F" HorizontalOptions="Fill" VerticalOptions="Fill">
+                    <Label Text="Delete" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" 
+                          HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                </Grid>
+            </DataTemplate>
+        </syncfusion:SfListView.LeftSwipeTemplate>
+    </syncfusion:SfListView>
+</ContentPage>
