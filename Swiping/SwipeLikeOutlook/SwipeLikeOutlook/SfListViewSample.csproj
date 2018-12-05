@@ -1,0 +1,66 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="MainPage.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="MainPage.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Delete.png" />
+    <None Remove="Images\Favorites.png" />
+    <None Remove="Images\Favorites1.png" />
+    <None Remove="Images\GroupCollapse.png" />
+    <None Remove="Images\GroupExpand.png" />
+    <None Remove="Images\Image0.png" />
+    <None Remove="Images\Image1.png" />
+    <None Remove="Images\Image10.png" />
+    <None Remove="Images\Image11.png" />
+    <None Remove="Images\Image12.png" />
+    <None Remove="Images\Image13.png" />
+    <None Remove="Images\Image14.png" />
+    <None Remove="Images\Image15.png" />
+    <None Remove="Images\Image16.png" />
+    <None Remove="Images\Image17.png" />
+    <None Remove="Images\Image18.png" />
+    <None Remove="Images\Image19.png" />
+    <None Remove="Images\Image2.png" />
+    <None Remove="Images\Image20.png" />
+    <None Remove="Images\Image21.png" />
+    <None Remove="Images\Image22.png" />
+    <None Remove="Images\Image23.png" />
+    <None Remove="Images\Image24.png" />
+    <None Remove="Images\Image25.png" />
+    <None Remove="Images\Image26.png" />
+    <None Remove="Images\Image27.png" />
+    <None Remove="Images\Image28.png" />
+    <None Remove="Images\Image3.png" />
+    <None Remove="Images\Image4.png" />
+    <None Remove="Images\Image5.png" />
+    <None Remove="Images\Image6.png" />
+    <None Remove="Images\Image7.png" />
+    <None Remove="Images\Image8.png" />
+    <None Remove="Images\Image9.png" />
+    <None Remove="Images\InboxIcon.png" />
+    <None Remove="Images\LeftSwipIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Delete.png" />
+    <EmbeddedResource Include="Images\Favorites.png" />
+    <EmbeddedResource Include="Images\Favorites1.png" />
+    <EmbeddedResource Include="Images\InboxIcon.png" />
+    <EmbeddedResource Include="Images\LeftSwipIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="16.3.0.29" />
+    <PackageReference Include="Xamarin.Forms" Version="3.2.0.871581" />
+  </ItemGroup>
+</Project>
