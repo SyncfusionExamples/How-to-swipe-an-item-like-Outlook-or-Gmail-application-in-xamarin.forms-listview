@@ -147,7 +147,7 @@
       <Version>16.3.0.29</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="3.2.0.871581" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.6" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Pacifico-Regular.ttf" />
